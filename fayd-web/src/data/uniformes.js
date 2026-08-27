@@ -28,3 +28,40 @@ export const UNIFORME_PASOS = [
   { n: '4', titulo: 'Producción', texto: 'Sublimación full print en tela dry-fit, control de calidad por prenda.' },
   { n: '5', titulo: 'Entrega', texto: 'Envío a todo Colombia con guía de rastreo. 10-15 días hábiles.' },
 ];
+
+/**
+ * Beneficios "TODO PERSONALIZADO, NADA GENÉRICO" con su detalle expandible
+ * (acordeón): cada ítem se despliega al click con las instrucciones reales.
+ */
+export const BENEFICIOS_UNIFORME = [
+  {
+    icono: '🛡️',
+    titulo: 'Tu escudo o logo en sublimación full print',
+    detalle: 'Mándanos tu escudo por WhatsApp en imagen clara (PNG, PDF o foto nítida). Lo vectorizamos y ajustamos sin costo antes de imprimir.',
+  },
+  {
+    icono: '✏️',
+    titulo: 'Nombres y números de cada jugador',
+    detalle: 'Envíanos la lista: nombre, número y talla de cada jugador (mensaje o Excel). Cada prenda sale personalizada y verificada una a una.',
+  },
+  {
+    icono: '🎨',
+    titulo: 'Colores institucionales exactos',
+    detalle: 'Trae el código exacto (Pantone o HEX) o una foto de referencia: igualamos el tono sobre la tela. Si no lo tienes, te proponemos combinaciones.',
+  },
+  {
+    icono: '👕',
+    titulo: 'Tela dry-fit de alto rendimiento',
+    detalle: 'Poliéster técnico transpirable con secado rápido: no pesa, no se queda húmedo y soporta lavadas frecuentes sin despintar (la tinta vive dentro de la fibra).',
+  },
+  {
+    icono: '👥',
+    titulo: 'Tallas mixtas hombre, mujer y niño',
+    detalle: 'Cada pedido puede mezclar tallas y cortes: adulto, dama y infantil, todos con tu mismo diseño. Te ayudamos con la tabla de tallas.',
+  },
+  {
+    icono: '📈',
+    titulo: 'Descuentos por volumen desde 20 unidades',
+    detalle: 'Desde 20 prendas aplicamos precio especial por unidad (y con la promo vigente, el diseño digital va gratis). Pídenos la cotización por WhatsApp.',
+  },
+];

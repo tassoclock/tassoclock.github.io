@@ -18,6 +18,8 @@ export const CONFIG = {
     instagram: 'https://www.instagram.com/fayd.sport',
     facebook: 'https://www.facebook.com/FAYDSport',
     tiktok: 'https://www.tiktok.com/@fayd.sport',
+    // ⚠️ COMPLETAR: URL real del canal — alimenta el botón de "Nuestro proceso"
+    youtube: 'https://www.youtube.com/@faydsport',
   },
   shipping: {
     cities: 'Envíos a todo Colombia',
@@ -40,15 +42,27 @@ export const CONFIG = {
   colombia: true, // badge "Hecho en Colombia"
 };
 
-export const NAV_LINKS = [
+// Navegación agrupada: 9 links → 4 visibles. Los grupos se despliegan
+// (dropdown desktop / acordeón móvil) desde Navbar.
+export const NAV_ESTRUCTURA = [
   { href: '#top', label: 'Inicio' },
-  { href: '#catalogo', label: 'Catálogo' },
-  { href: '#calzado', label: 'Calzado' },
-  { href: '#uniformes', label: 'Uniformes' },
-  { href: '#looks', label: 'Looks' },
-  { href: '#noticias', label: 'Noticias' },
-  { href: '#galeria', label: 'Galería' },
-  { href: '#info', label: 'Info' },
+  {
+    label: 'Tienda',
+    items: [
+      { href: '#catalogo', label: 'Catálogo' },
+      { href: '#calzado', label: 'Calzado' },
+      { href: '#uniformes', label: 'Uniformes' },
+    ],
+  },
+  {
+    label: 'Descubre',
+    items: [
+      { href: '#looks', label: 'Looks' },
+      { href: '#noticias', label: 'Noticias' },
+      { href: '#galeria', label: 'Galería' },
+      { href: '#info', label: 'Info' },
+    ],
+  },
   { href: '#contacto', label: 'Contacto' },
 ];
 

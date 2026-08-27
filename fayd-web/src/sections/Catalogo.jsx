@@ -235,9 +235,10 @@ export default function Catalogo() {
               </p>
               {/* Otros colores / variantes de la misma línea */}
               {(() => {
+                // Máximo 5 miniaturas: el modal no es un listado, es una ficha.
                 const variantes = catalogo.filter(
                   (p) => p.categoria === activa.categoria && p.id !== activa.id
-                );
+                ).slice(0, 5);
                 if (variantes.length === 0) return null;
                 return (
                   <div className="mt-5">

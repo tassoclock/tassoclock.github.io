@@ -45,13 +45,11 @@ export default function Hero() {
           </RevealOnScroll>
           <RevealOnScroll delay={300}>
             <div className="flex flex-wrap gap-4 mt-8">
-              <Button
-                href={buildWaLink(CONFIG.whatsapp.number, CONFIG.whatsapp.defaultMessage)}
-              >
+              <Button href="#catalogo">
                 Ver catálogo →
               </Button>
-              <Button variant="outline" href="#catalogo">
-                Explorar
+              <Button variant="whatsapp" href={buildWaLink(CONFIG.whatsapp.number, CONFIG.whatsapp.defaultMessage)}>
+                💬 Pedir por WhatsApp
               </Button>
             </div>
           </RevealOnScroll>
