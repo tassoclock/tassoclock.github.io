@@ -31,12 +31,19 @@
                text-decoration: none; font-size: 14px; padding: 10px; }
   h2 { font-size: 16px; margin: 22px 0 10px; color: var(--amarillo-oscuro);
        border-bottom: 2px solid #fde68a; padding-bottom: 6px; }
-  .servicio { background: #fff; border: 1px solid #fde68a; border-radius: 12px;
-              padding: 14px; margin-bottom: 10px; }
-  .servicio b { display: block; margin-bottom: 4px; }
-  .servicio p { font-size: 14px; color: var(--gris); }
+  details.servicio { background: #fff; border: 1px solid #fde68a; border-radius: 12px;
+                     margin-bottom: 10px; overflow: hidden; }
+  details.servicio summary { list-style: none; cursor: pointer;
+                             padding: 14px 40px 14px 14px; position: relative; }
+  details.servicio summary::-webkit-details-marker { display: none; }
+  details.servicio summary b { display: block; margin-bottom: 4px; padding-right: 20px; }
+  .flecha { position: absolute; top: 16px; right: 14px; color: var(--amarillo-oscuro);
+            font-size: 13px; transition: transform .2s ease; }
+  details.servicio[open] .flecha { transform: rotate(180deg); }
+  details.servicio[open] summary { border-bottom: 1px solid #fde68a; }
+  .s-desc { padding: 12px 14px 14px; font-size: 14px; color: var(--gris); }
   .servicio .precio { color: var(--verde); font-weight: 700; font-size: 13px;
-                      display: block; margin-top: 6px; }
+                      display: block; margin-top: 2px; }
   .dato { display: flex; gap: 8px; align-items: baseline; margin: 8px 0;
           font-size: 15px; }
   .dato span:first-child { color: var(--amarillo-oscuro); }
@@ -87,8 +94,9 @@ const SERVICIOS = [
 function moneda(v) { return v > 0 ? "Desde $" + v.toLocaleString("es-CO") + " COP" : "Cotiza sin compromiso"; }
 
 document.getElementById("servicios").innerHTML = SERVICIOS.map(s =>
-  `<div class="servicio"><b>${s.nombre}</b><p>${s.descripcion}</p>` +
-  `<span class="precio">${moneda(s.precio)}</span></div>`).join("");
+  `<details class="servicio">` +
+  `<summary><b>${s.nombre}</b><span class="precio">${moneda(s.precio)}</span><span class="flecha">▼</span></summary>` +
+  `<p class="s-desc">${s.descripcion}</p></details>`).join("");
 
 async function cargarNoticias() {
   try {
