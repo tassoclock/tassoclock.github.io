@@ -1,28 +1,28 @@
 /**
- * Stats — cifras de la marca (fondo negro).
- * Extraída de App.jsx sin cambios (refactor lote 2).
+ * Stats — cifras del sector solar Caribe (fondo verde profundo).
+ * Datos: docs/INVESTIGACION-MERCADO.md · Solar-Content-System.
  */
-import { formatNumber } from '../lib/utils';
 import { RevealOnScroll } from '../components/ui';
 import { CONFIG } from '../data/config';
 
 export default function Stats() {
   const items = [
-    { valor: CONFIG.stats.prendas, sufijo: '+', etiqueta: 'Prendas disponibles', icono: '👕' },
-    { valor: CONFIG.stats.clientes, sufijo: '+', etiqueta: 'Clientes felices', icono: '😊' },
-    { valor: CONFIG.stats.ciudades, sufijo: '', etiqueta: 'Ciudades con envíos', icono: '📍' },
-    { valor: CONFIG.stats.years, sufijo: '', etiqueta: 'Años de la marca', icono: '🏆' },
+    { valor: CONFIG.stats.ahorro, sufijo: '%', etiqueta: 'menos en tu factura', icono: '💸' },
+    { valor: CONFIG.stats.radiacion, sufijo: '', etiqueta: 'kWh/m² de radiación al día', icono: '☀️' },
+    { valor: CONFIG.stats.retorno, sufijo: ' años', etiqueta: 'para recuperar la inversión', icono: '📈' },
+    { valor: CONFIG.stats.vidaUtil, sufijo: '+ años', etiqueta: 'de vida útil del sistema', icono: '🔋' },
   ];
+  const fmt = (v) => new Intl.NumberFormat('es-CO').format(v);
   return (
-    <section className="py-14 px-4 sm:px-8 bg-black" aria-label="Cifras de FAYD">
+    <section className="py-14 px-4 sm:px-8 bg-bosque-profundo" aria-label="Cifras del sector solar">
       <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
         {items.map((item, i) => (
           <RevealOnScroll key={item.etiqueta} delay={i * 100}>
             <div className="text-center">
               <p className="text-3xl mb-2" aria-hidden="true">{item.icono}</p>
               <p className="text-white text-4xl font-black">
-                {formatNumber(item.valor)}
-                <span className="text-red-500">{item.sufijo}</span>
+                {fmt(item.valor)}
+                <span className="text-sol">{item.sufijo}</span>
               </p>
               <p className="text-white/50 text-sm mt-1">{item.etiqueta}</p>
             </div>

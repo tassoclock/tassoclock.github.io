@@ -2,18 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tipografía de la marca FAYD */
-@font-face {
-  font-family: 'Exan';
-  src: url('/fonts/Exan-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { @apply bg-white text-black font-sans; }
+  body { @apply bg-crema text-neutral-900 font-sans; }
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset;
     -webkit-text-fill-color: black;
@@ -22,9 +13,9 @@
 }
 
 @layer utilities {
-  /* Wordmark FAYD con la tipografía Exan */
-  .font-exan {
-    font-family: 'Exan', 'Arial Black', sans-serif;
+  /* Wordmark de marca (mayúsculas pesadas, sin fuente externa) */
+  .font-marca {
+    font-family: 'Arial Black', system-ui, sans-serif;
     letter-spacing: 0.02em;
   }
 

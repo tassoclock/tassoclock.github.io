@@ -1,80 +1,119 @@
 /**
- * Configuración global y constantes de marca FAYD.
- * Extraído de App.jsx sin cambios (refactor lote 2).
+ * Configuración global y constantes de marca — Eco Energy Tassoclock S.A.S.
+ * Datos del negocio alineados con Solar-Content-System/config.py.
+ * Paleta y ganchos según docs/ESTUDIO-DISENO-WEB-2026-09.md (Solar-Content-System).
  */
 
 export const CONFIG = {
   brand: {
-    name: 'FAYD',
-    slogan: 'Ropa deportiva con actitud',
-    description: 'Tu estilo deportivo empieza aquí. Calidad, comodidad y diseño en cada prenda.',
+    name: 'ECO ENERGY',
+    legal: 'Eco Energy Tassoclock S.A.S',
+    sub: 'TASSOCLOCK S.A.S',
+    slogan: 'Tu techo es tu mejor inversión',
+    description:
+      'Instalación, mantenimiento y venta de paneles solares en la Costa Caribe colombiana. Ahorra hasta 80% en tu factura y resuelve los apagones.',
   },
   whatsapp: {
-    number: '573222676860', // ⚠️ CAMBIAR por el número de la tienda
-    defaultMessage: 'Hola FAYD, quiero información de sus prendas',
+    // ⚠️ CAMBIAR por el número real del negocio (mismo placeholder que
+    // Solar-Content-System hasta la confirmación del dueño, Paso 12).
+    number: '573001234567',
+    defaultMessage:
+      'Hola Eco Energy 👋 Quiero información sobre paneles solares para mi casa o negocio',
   },
   social: {
     // ⚠️ COMPLETAR con los perfiles reales cuando se creen
-    instagram: 'https://www.instagram.com/fayd.sport',
-    facebook: 'https://www.facebook.com/FAYDSport',
-    tiktok: 'https://www.tiktok.com/@fayd.sport',
-    // ⚠️ COMPLETAR: URL real del canal — alimenta el botón de "Nuestro proceso"
-    youtube: 'https://www.youtube.com/@faydsport',
+    instagram: 'https://www.instagram.com/',
+    facebook: 'https://www.facebook.com/',
+    tiktok: 'https://www.tiktok.com/',
   },
-  shipping: {
-    cities: 'Envíos a todo Colombia',
-    time: '2 a 5 días hábiles',
-    payment: 'Nequi · Daviplata · BRE-B · Contra entrega',
+  zona: {
+    titulo: 'Costa Caribe colombiana',
+    ciudades: [
+      'Arjona',
+      'Cartagena',
+      'Barranquilla',
+      'Santa Marta',
+      'Sincelejo',
+      'Montería',
+      'Valledupar',
+    ],
   },
-  // ⚠️ COMPLETAR: números reales de cada billetera (sin espacios).
-  pagos: {
-    nequi: { numero: '3222676860', titular: 'FAYD SPORT' },
-    daviplata: { numero: '3222676860', titular: 'FAYD SPORT' },
-    breb: { numero: '3222676860', titular: 'FAYD SPORT' },
-    contraEntrega: 'Bogotá, Soacha y alrededores',
-  },
+  horario: 'Lunes a sábado, 8:00 am - 6:00 pm',
+
+  // Sector (docs/INVESTIGACION-MERCADO.md · Solar-Content-System)
   stats: {
-    prendas: 150,
-    clientes: 800,
-    ciudades: 25,
-    years: 3,
+    ahorro: 80, // % de reducción de factura
+    radiacion: 5.8, // kWh/m² por día en el Caribe
+    retorno: 6, // años para recuperar la inversión (4-6)
+    vidaUtil: 25, // años de vida útil del sistema
   },
-  colombia: true, // badge "Hecho en Colombia"
+
+  // Servicios con precio de referencia (COP) — igual que /api/config del sistema
+  servicios: [
+    {
+      id: 'residencial',
+      icono: '🏠',
+      nombre: 'Sistema solar residencial',
+      descripcion:
+        'Sistema de 2 a 10 kWp conectado a la red. Reduce tu factura hasta 80% desde el primer mes.',
+      precio: 9_000_000,
+      badge: 'Más pedido',
+    },
+    {
+      id: 'comercial',
+      icono: '🏪',
+      nombre: 'Sistema solar comercial',
+      descripcion:
+        'Para negocios y zona comercial de la Costa Caribe. Diseñado según tu consumo real.',
+      precio: 15_000_000,
+      badge: 'Negocios',
+    },
+    {
+      id: 'mantenimiento',
+      icono: '🛠️',
+      nombre: 'Mantenimiento de paneles',
+      descripcion:
+        'Limpieza, revisión eléctrica y monitoreo de tu instalación para que siempre produzca al máximo.',
+      precio: 150_000,
+      badge: 'Por año',
+    },
+    {
+      id: 'venta_paneles',
+      icono: '🔆',
+      nombre: 'Venta de paneles e inversores',
+      descripcion:
+        'Equipos nuevos con garantía, instalados por técnicos certificados de la región.',
+      precio: 0,
+      badge: 'Cotiza',
+    },
+  ],
+
+  // Parámetros de la calculadora de ahorro (radiación Caribe).
+  calculadora: {
+    tarifaCOPPorKwh: 850, // tarifa promedio Caribe (Afinia/Air-e)
+    kwhMesPorKwp: 140, // 1 kWp ≈ 140 kWh/mes con 5.0-5.8 kWh/m²/día
+    offsetMaximo: 0.8, // el sistema cubre hasta ~80% del consumo
+    costoPorVatio: 2_800, // COP por vatio instalado (rango 2.000-3.500)
+  },
+
+  colombia: true, // badge "Costa Caribe · Colombia"
+
+  // Solar-Content-System (agentes de contenido). URL base de la API en
+  // producción (Railway). Vacío = la web solo usa el feed local
+  // /content/noticias.json (copia del feed del agente). Ej:
+  // base: 'https://eco-energy-tassoclock.up.railway.app'
+  api: {
+    base: '',
+  },
 };
 
-// Navegación agrupada: 9 links → 4 visibles. Los grupos se despliegan
-// (dropdown desktop / acordeón móvil) desde Navbar.
+// Navegación: secciones de la página.
 export const NAV_ESTRUCTURA = [
   { href: '#top', label: 'Inicio' },
-  {
-    label: 'Tienda',
-    items: [
-      { href: '#catalogo', label: 'Catálogo' },
-      { href: '#calzado', label: 'Calzado' },
-      { href: '#uniformes', label: 'Uniformes' },
-    ],
-  },
-  {
-    label: 'Descubre',
-    items: [
-      { href: '#looks', label: 'Looks' },
-      { href: '#noticias', label: 'Noticias' },
-      { href: '#galeria', label: 'Galería' },
-      { href: '#info', label: 'Info' },
-    ],
-  },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#calculadora', label: 'Calculadora' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#noticias', label: 'Noticias' },
   { href: '#contacto', label: 'Contacto' },
 ];
-
-// Etiquetas visibles de las líneas del catálogo. Los ids son ASCII (Enmienda
-// 2: así los escribe el pipeline en catalogo.json); las ñ viven solo en la UI.
-export const ETIQUETAS_CATEGORIA = {
-  nino: 'Niño',
-  nina: 'Niña',
-  mujer: 'Mujer',
-  hombre: 'Hombre',
-  adulto: 'Adulto',
-};
-export const etiquetaCategoria = (cat) =>
-  ETIQUETAS_CATEGORIA[cat] ||
-  (typeof cat === 'string' && cat ? cat.charAt(0).toUpperCase() + cat.slice(1) : '');

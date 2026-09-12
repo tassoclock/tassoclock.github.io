@@ -1,6 +1,5 @@
 /**
  * Botón flotante de WhatsApp.
- * Extraído de App.jsx sin cambios (refactor lote 2).
  */
 import { buildWaLink } from '../lib/utils';
 import { CONFIG } from '../data/config';

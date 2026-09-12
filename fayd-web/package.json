@@ -1,5 +1,5 @@
 {
-  "name": "fayd-landing",
+  "name": "tassoclock-web",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -19,5 +19,5 @@
     "tailwindcss": "^3.4.6",
     "vite": "^5.3.4"
   },
-  "description": "FAYD — Tienda de ropa deportiva"
+  "description": "Eco Energy Tassoclock S.A.S — Paneles solares · Costa Caribe"
 }

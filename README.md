@@ -1,16 +1,27 @@
-# React + Vite
+# Eco Energy Tassoclock — Web oficial
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Landing pública de **Eco Energy Tassoclock S.A.S**: paneles solares, seguridad
+electrónica y redes eléctricas — costa Caribe, Colombia.
 
-Currently, two official plugins are available:
+- **Sitio**: https://tassoclock.github.io
+- **Stack**: React 18 + Vite + Tailwind
+- **Deploy**: automático a GitHub Pages en cada push a `main`
+  (`.github/workflows/deploy.yml`)
+- **Noticias**: la sección lee `public/content/noticias.json` (respaldo curado);
+  cuando la API del sistema de contenido esté desplegada en Railway, consume
+  `GET /api/noticias` en vivo.
+- **Contacto**: botón flotante de WhatsApp — número en `fayd-web/src/data/config.js`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Desarrollo
 
-## React Compiler
+```bash
+cd fayd-web
+npm install
+npm run dev      # servidor local
+npm run build    # producción (dist/)
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Proyecto independiente del negocio. Cualquier cambio se publica solo con
+push a `main`.

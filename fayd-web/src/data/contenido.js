@@ -1,207 +1,183 @@
 /**
- * Contenido editorial: looks, noticias de deportistas, beneficios y testimonios.
- * Extraído de App.jsx sin cambios (refactor lote 2).
+ * Contenido editorial solar: beneficios, proceso 1-2-3, noticias del sector
+ * y testimonios. Los datos duros vienen de Solar-Content-System:
+ *   docs/INVESTIGACION-MERCADO.md  (Fase 0)
+ *   docs/TENDENCIAS-2026-09.md     (agente de tendencias, 240 titulares)
+ *   docs/ESTUDIO-DISENO-WEB-2026-09.md
  */
-import { U } from '../lib/utils';
-import { FOTOS_NINO, FOTOS_VARIADAS } from './catalogo';
 
-// Looks / outfits completos listos para comprar
-export const LOOKS_FAYD = [
-  {
-    id: 'look-1',
-    nombre: 'Training Full',
-    descripcion: 'Conjunto adulto para gym — top + licra + tenis',
-    whatsapp: 'Hola FAYD, me interesa el look Training Full',
-    imagenes: [
-      `/foto/fotos_fayd/bariada/${FOTOS_VARIADAS[0]}`,
-      `/foto/fotos_fayd/bariada/${FOTOS_VARIADAS[1]}`,
-    ],
-    badge: 'Más vendido',
-  },
-  {
-    id: 'look-2',
-    nombre: 'Mini Champion',
-    descripcion: 'Outfit infantil completo — camiseta + short',
-    whatsapp: 'Hola FAYD, me interesa el look Mini Champion',
-    imagenes: [
-      `/foto/fotos_fayd/nino/${FOTOS_NINO[0]}`,
-      `/foto/fotos_fayd/nino/${FOTOS_NINO[2]}`,
-    ],
-    badge: 'Línea niño',
-  },
-  {
-    id: 'look-3',
-    nombre: 'Street Sport',
-    descripcion: 'Buzo + gorra + tenis — de la cancha a la calle',
-    whatsapp: 'Hola FAYD, me interesa el look Street Sport',
-    imagenes: [
-      `/foto/fotos_fayd/bariada/${FOTOS_VARIADAS[3]}`,
-      `/foto/fotos_fayd/bariada/${FOTOS_VARIADAS[4]}`,
-    ],
-    badge: 'Nuevo',
-  },
-  {
-    id: 'look-4',
-    nombre: 'Familia FAYD',
-    descripcion: 'Padre e hijo con el mismo estilo deportivo',
-    whatsapp: 'Hola FAYD, me interesa el look Familia FAYD',
-    imagenes: [
-      `/foto/fotos_fayd/bariada/${FOTOS_VARIADAS[5]}`,
-      `/foto/fotos_fayd/nino/${FOTOS_NINO[3]}`,
-    ],
-    badge: 'Edición limitada',
-  },
-];
-
-// ════════════════════════════════════════════
-// NOTICIAS DE DEPORTISTAS — marketing sutil de moda:
-// el internauta lee la entrevista/noticia y, sin darse cuenta,
-// registra CÓMO VISTE el deportista → caja "El look" → WhatsApp.
-// ⚠️ COMPLETAR: publica aquí entrevistas reales de tu canal de YouTube
-// (campo youtubeId) y noticias con foto propia de cada deportista.
-// ════════════════════════════════════════════
-export const NOTICIAS_DEPORTISTAS = [
-  {
-    id: 'nd1',
-    titulo: 'Rivaldo firma su primer contrato profesional con Patriotas Boyacá',
-    descripcion: 'El delantero formado en Acrux FC da el salto al profesionalismo. Mira el video de su presentación.',
-    fecha: '2026-07-10',
-    badge: '🎙️ ENTREVISTA',
-    badgeColor: 'red',
-    image: '/foto/Rivaldo.png',
-    video: '/videos/presentacion-de-rivaldo.mp4',
-    fullContent: `Gracias a Acrux FC estoy jugando en Patriotas Boyacá.
-
-Quiero agradecer al Club Deportivo Patriotas de Tunja por abrirme las puertas y darme la oportunidad de formar parte de sus divisiones inferiores.
-
-Gracias a mi familia, a mi club Acrux FC que me formó desde el inicio, y a cada entrenador que creyó en mí. Llevar estos colores es un orgullo que asumo con trabajo, humildad y compromiso.`,
-    outfit: {
-      tip: 'Para el día de su firma eligió conjunto deportivo ajustado en tono oscuro: sobrio para la cámara, cómodo para el viaje y con presencia de profesional.',
-      whatsapp: 'Hola FAYD, quiero vestirme como Rivaldo en su presentación: ¿me muestran los conjuntos deportivos fitted?',
-    },
-  },
-  {
-    id: 'nd2',
-    titulo: 'Phil Jackson Ibargüen: del Toulon 2004 al banquillo, siempre con estilo de DT',
-    descripcion: 'Ex seleccionado Colombia Sub-20 y hoy manager: la elegancia del que vivió el fútbol profesional.',
-    fecha: '2026-07-05',
-    badge: '⭐ NOTICIA',
-    badgeColor: 'blue',
-    image: '/foto/phil.png',
-    fullContent: `Phil Jackson Ibargüen Sánchez nació en Acandí, Chocó. Delantero profesional (debut en 2004 con Cortuluá) y seleccionado Colombia Sub-20 que disputó el Torneo Esperanzas de Toulon 2004 junto a Falcao García y Freddy Guarín, marcando gol ante China.
-
-Con experiencia en clubes de Colombia, Ecuador, Portugal y Bosnia, hoy pone su experiencia y liderazgo al servicio de los jóvenes talentos.`,
-    outfit: {
-      tip: 'El clásico "coach look": buzo sobrio + jogger + gorra. Autoridad en la cancha sin perder comodidad.',
-      whatsapp: 'Hola FAYD, busco el look de DT: ¿qué buzos y joggers tienen disponibles?',
-    },
-  },
-  {
-    id: 'nd3',
-    titulo: 'El uniforme del gol: cómo visten los «9» colombianos',
-    descripcion: 'Falcao, Borré, Córdoba: los goleadores nacionales comparten un código sobrio y elegante.',
-    fecha: '2026-07-28',
-    badge: '👔 ESTILO',
-    badgeColor: 'dark',
-    image: U('1431324155629-1a6deb1dec8d'),
-    fullContent: `Los delanteros colombianos convirtieron la rueda de prensa en pasarela: camisera ajustada, chaqueta sobria y tenis limpios.
-
-La fórmula del «9» de área: colores neutros, cortes ajustados y cero estridencia. Elegancia que se nota sin gritar.`,
-    outfit: {
-      tip: 'Para copiar el código: top neutro ajustado + jogger clásico. Simple, elegante, ganador.',
-      whatsapp: 'Hola FAYD, quiero un outfit elegante tipo goleador para salir',
-    },
-  },
-  {
-    id: 'nd4',
-    titulo: 'Streetwear criollo: el look de los extremos veloces',
-    descripcion: 'Los que desbordan por la banda visten oversize, capas y un toque de color que rompe el gris.',
-    fecha: '2026-08-02',
-    badge: '👔 ESTILO',
-    badgeColor: 'dark',
-    image: U('1574629810360-7efbbe195018'),
-    fullContent: `El extremo moderno juega rápido y viste igual de atrevido: buzos oversize, capuchas, capas y un acento de color.
-
-El streetwear futbolero ya no vive solo en Europa: las canchas colombianas marcan tendencia propia.`,
-    outfit: {
-      tip: 'Clave del look: buzo amplio + gorra + tenis llamativos. De la cancha a la esquina sin cambiarse.',
-      whatsapp: 'Hola FAYD, me gusta el estilo street de los extremos: ¿qué buzos oversize tienen?',
-    },
-  },
-  {
-    id: 'nd5',
-    titulo: 'Athleisure: el gym-to-street que domina Colombia',
-    descripcion: 'Entrenar, almorzar y trabajar con el mismo outfit: la tendencia que llegó para quedarse.',
-    fecha: '2026-08-08',
-    badge: '🧠 GUÍA',
-    badgeColor: 'yellow',
-    image: U('1571019613454-1cb2f99b2d8b'),
-    fullContent: `El athleisure ya no es tendencia: es el uniforme diario. Conjuntos de tela técnica que respiran, se ven bien en cámara y aguantan el día completo.
-
-Regla de oro: una prenda deportiva + una neutra. El resto lo hace la actitud.`,
-    outfit: {
-      tip: 'Empieza con un conjunto dry-fit completo y combínalo con una chaqueta neutra. Listo para todo el día.',
-      whatsapp: 'Hola FAYD, quiero un conjunto athleisure para todo el día',
-    },
-  },
-  {
-    id: 'nd6',
-    titulo: 'Kit del campeón junior: cómo equipar a tu hijo como un pro',
-    descripcion: 'Conjunto técnico + guayes correctos: la ropa adecuada mejora el juego y la seguridad.',
-    fecha: '2026-08-12',
-    badge: '👦 LÍNEA NIÑO',
-    badgeColor: 'blue',
-    image: `/foto/fotos_fayd/nino/${FOTOS_NINO[4]}`,
-    fullContent: `Un jugador bien equipado rinde más: ropa transpirable que no pega, guayes adecuados a la superficie y capas fáciles de quitar al calentar.
-
-La línea infantil FAYD está pensada para entrenar en serio y crecer cómodo.`,
-    outfit: {
-      tip: 'El kit completo: conjunto técnico infantil + guayes de niño + medias altas. Todo se pide por WhatsApp.',
-      whatsapp: 'Hola FAYD, quiero el kit completo para mi hijo: conjunto + guayes de niño',
-    },
-  },
-];
-
+// Ganchos ordenados por el estudio de tendencias:
+// #1 factura/ahorro (73 menciones) · #2 apagones (58) · #3 subsidios (56)
 export const BENEFICIOS = [
   {
-    icono: '🚚',
-    titulo: 'Envíos nacionales',
-    texto: 'Llevamos tu pedido a cualquier ciudad de Colombia en 2 a 5 días hábiles.',
+    icono: '💸',
+    titulo: 'Hasta 80% menos en la factura',
+    texto:
+      'El gancho #1 del Caribe: tu sistema solar paga la inversión en 4-6 años y sigue produciendo por más de 25.',
   },
   {
-    icono: '💳',
-    titulo: 'Pago flexible',
-    texto: 'Contra entrega, transferencia o tarjeta. Tú eliges cómo pagar.',
+    icono: '🔌',
+    titulo: 'Adiós a los apagones',
+    texto:
+      'Con respaldo de baterías, los cortes de luz dejan de detener tu hogar o tu negocio.',
   },
   {
-    icono: '🏆',
-    titulo: 'Calidad premium',
-    texto: 'Telas frescas, resistentes y con diseños exclusivos de la marca.',
+    icono: '🏛️',
+    titulo: 'Incentivos por ley',
+    texto:
+      'Ley 1715 y Ley 2099: exención de impuestos para sistemas residenciales y deducciones para empresas.',
   },
   {
-    icono: '💬',
-    titulo: 'Atención directa',
-    texto: 'Escríbenos por WhatsApp y te asesoramos con tallas y diseños.',
+    icono: '🌴',
+    titulo: 'La mejor radiación del país',
+    texto:
+      'El Caribe tiene 5.0-5.8 kWh/m² diarios: de las zonas con mayor potencial solar de Colombia.',
   },
 ];
 
+// Proceso 1-2-3 (patrón de los mejores sitios del sector — estudio, sección 3)
+export const PROCESO = [
+  {
+    numero: '1',
+    icono: '💬',
+    titulo: 'Escríbenos por WhatsApp',
+    texto:
+      'Cuéntanos cuánto pagas de factura (o usa la calculadora). Te respondemos el mismo día, sin compromiso.',
+  },
+  {
+    numero: '2',
+    icono: '🔎',
+    titulo: 'Visita técnica gratuita',
+    texto:
+      'Evaluamos tu techo, tu consumo y tu margen de ahorro real. Recibes una propuesta clara y a medida.',
+  },
+  {
+    numero: '3',
+    icono: '☀️',
+    titulo: 'Instalas y ahorras',
+    texto:
+      'Instalación certificada en días, no semanas. Empiezas a pagar menos factura desde el primer mes.',
+  },
+];
+
+// ⚠️ EJEMPLOS — reemplazar con testimonios reales de clientes de la zona
+// (con nombre, ciudad y foto del proyecto cuando el dueño los consiga).
 export const TESTIMONIOS = [
   {
     id: 1,
-    nombre: 'Laura G.',
-    texto: 'Las prendas son de muy buena calidad, la tela es fresca y los diseños son únicos. Mi pedido llegó súper rápido.',
-    compra: 'Conjunto deportivo',
+    nombre: 'Cliente residencial',
+    texto:
+      'Pasé de pagar $380.000 a menos de $90.000 de factura. Con los apagones de la zona, lo mejor fue el respaldo.',
+    compra: 'Sistema 3 kWp · Arjona',
   },
   {
     id: 2,
-    nombre: 'Andrés M.',
-    texto: 'Compré para toda la familia. La línea de niño es espectacular, mi hijo ama su conjunto.',
-    compra: 'Línea infantil',
+    nombre: 'Negocio de barrio',
+    texto:
+      'La nevería no podía parar con cada corte. Con el sistema comercial trabajamos todos los días sin sustos.',
+    compra: 'Sistema 8 kWp · Cartagena',
   },
   {
     id: 3,
-    nombre: 'Camila R.',
-    texto: 'Excelente atención por WhatsApp. Me ayudaron con las tallas y todo llegó perfecto.',
-    compra: 'Envío a Medellín',
+    nombre: 'Finca familiar',
+    texto:
+      'La visita técnica fue gratis y la propuesta quedó clara: inversión recuperada en 5 años. Ya vamos al año 2.',
+    compra: 'Sistema 5 kWp · Turbaco',
+  },
+];
+
+// Noticias curadas del sector solar colombiano (fuentes: INVESTIGACION-MERCADO.md).
+// ⚠️ COMPLETAR: conectar al feed noticias.json de Solar-Content-System cuando
+// el workflow diario esté en producción (Fase 1, Paso 10).
+export const NOTICIAS_SOLARES = [
+  {
+    id: 'ns1',
+    titulo: 'Turbaco ya tiene la primera planta solar del país',
+    descripcion:
+      'El proyecto de Promigas en Bolívar marca un antes y un después para la energía del Caribe colombiano.',
+    fecha: '2026-08-20',
+    badge: '⚡ BOLÍVAR',
+    badgeColor: 'sol',
+    icono: '🏭',
+    fullContent: `Bolívar se convirtió en referente energético del país: la primera planta solar de Colombia opera en Turbaco, a pocos kilómetros de Cartagena.
+
+Para los habitantes de Arjona, Turbaco y Cartagena esto significa dos cosas: la región está validada para la generación solar y la cadena local de instaladores y técnicos sigue creciendo.
+
+Eco Energy instala sistemas residenciales y comerciales en toda esa zona.`,
+  },
+  {
+    id: 'ns2',
+    titulo: 'El Gobierno se planteó 1 millón de familias con paneles solares',
+    descripcion:
+      'El anuncio nacional (Presidencia / MinMinas) impulsa los techos solares residenciales en todo el país.',
+    fecha: '2026-08-12',
+    badge: '🏛️ PAÍS',
+    badgeColor: 'cielo',
+    icono: '🏠',
+    fullContent: `El anuncio de llevar paneles solares a un millón de familias posiciona a los techos residenciales como el motor de la transición energética.
+
+Qué significa para el Caribe: más incentivos, más oferta de equipos y mejores precios de instalación. Quien instala ahora aprovecha los beneficios de la Ley 1715 y la Ley 2099 mientras la demanda regional sigue creciendo.`,
+  },
+  {
+    id: 'ns3',
+    titulo: 'Tu factura, el tema que más preocupa en la región',
+    descripcion:
+      'El análisis de 240 titulares del mes lo confirma: ahorro en la factura es el tema solar #1 en Colombia.',
+    fecha: '2026-09-01',
+    badge: '📊 TENDENCIA',
+    badgeColor: 'sol',
+    icono: '💸',
+    fullContent: `El agente de tendencias de Eco Energy analizó 240 titulares de Google News Colombia del último mes:
+
+- Factura/ahorro: 73 menciones (tema #1)
+- Apagones/confiabilidad: 58 menciones
+- Regulación/gobierno: 56 menciones
+
+Traducción práctica: la pregunta que todos se hacen es cuánto se ahorra. La respuesta en el Caribe: hasta 80% de la factura, con retorno en 4-6 años.`,
+  },
+  {
+    id: 'ns4',
+    titulo: 'La solar ya le ganó al carbón en generación eléctrica',
+    descripcion:
+      'Con 4.473 GWh generados en 2025, la energía solar superó al carbón en la matriz colombiana.',
+    fecha: '2026-07-28',
+    badge: '📈 DATO',
+    badgeColor: 'cielo',
+    icono: '🔋',
+    fullContent: `Colombia generó 4.473 GWh de energía solar en 2025: por primera vez, más que el carbón. El mercado pasó de 2,25 GW y proyecta llegar a 10,39 GW en 2031.
+
+El momento de instalar es ahora: los equipos mejoran de precio y la radiación del Caribe produce más que en cualquier otra región del país.`,
+  },
+  {
+    id: 'ns5',
+    titulo: '¿Cuánto se ahorra de verdad con Afinia y Air-e?',
+    descripcion:
+      'Hasta 55% de ahorro en la factura con Afinia y cerca de 80% con un sistema de 4 kWp bien diseñado.',
+    fecha: '2026-07-15',
+    badge: '🧮 GUÍA',
+    badgeColor: 'sol',
+    icono: '🧾',
+    fullContent: `Las eléctricas de la región (Afinia en Cartagena, Air-e en Barranquilla) ajustaron tarifas y el ahorro solar se nota más que nunca:
+
+- Con Afinia: hasta 55% de reducción en la factura.
+- Con un sistema residencial de 4 kWp: cerca de 80%.
+
+La clave está en el diseño: el sistema debe dimensionarse con tu consumo real. Por eso la visita técnica de Eco Energy es gratuita.`,
+  },
+  {
+    id: 'ns6',
+    titulo: 'Los incentivos que pocos conocen (Ley 1715 y Ley 2099)',
+    descripcion:
+      'Exención de impuestos para sistemas residenciales y deducciones de renta para proyectos renovables.',
+    fecha: '2026-07-05',
+    badge: '🏛️ LEYES',
+    badgeColor: 'bosque',
+    icono: '📋',
+    fullContent: `El marco legal colombiano favorece a quien instala hoy:
+
+- Ley 1715: deducción de 50% de la inversión en renovables, exclusión de IVA para equipos y exención de aranceles.
+- Ley 2099 (transición energética): extendió y afinó los incentivos para generación distribuida.
+
+En un sistema residencial típico, estos beneficios reducen la inversión total de forma significativa. Pregunta por ellos al cotizar.`,
   },
 ];
